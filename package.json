@@ -4,7 +4,7 @@
   "private": true,
   "homepage": ".",
   "engines" : {
-    "node" : ">=14.15.0 <0.15" 
+    "node" : "^14.15.0" 
   },
   "dependencies": {
     "@types/debounce": "^1.2.0",
