@@ -14,18 +14,21 @@ interface TopBarProps {
 const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
   return (
     <StyledTopBar>
-      <div style={{ backgroundColor: 'black', color: 'white', textAlign: 'center', padding: '3px', marginBottom: '10px' }}>This is a project on testnet. There is no ATIVO token yet. Do not get scammed.</div>
-      <Container size="lg">
-        <StyledTopBarInner>
-          <StyledLogoWrapper>
-            <Logo />
-          </StyledLogoWrapper>
-          <Nav />
-          <StyledAccountButtonWrapper>
-            <AccountButton />
-          </StyledAccountButtonWrapper>
-        </StyledTopBarInner>
-      </Container>
+      <div style={{ backgroundColor: 'black', color: 'white', textAlign: 'center', padding: '3px'}}>This is a project on testnet. There is no ATIVO token yet. Do not get scammed.</div>
+
+      <StyledTopBarInner>
+        <Container size="lg" spacing={0}>
+          <StyledTopBarInner>
+            <StyledLogoWrapper>
+              <Logo />
+            </StyledLogoWrapper>
+            <Nav />
+            <StyledAccountButtonWrapper>
+              <AccountButton />
+            </StyledAccountButtonWrapper>
+          </StyledTopBarInner>
+        </Container>
+      </StyledTopBarInner>
     </StyledTopBar>
   )
 }
@@ -44,16 +47,9 @@ const StyledTopBarInner = styled.div`
   display: flex;
   height: ${(props) => props.theme.topBarSize}px;
   justify-content: space-between;
-  max-width: ${(props) => props.theme.siteWidth}px;
   width: 100%;
-`
-const StyledNavWrapper = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  @media (max-width: 400px) {
-    display: none;
-  }
+  background-color: ${props => props.theme.color.grey[200]};
+  padding: 0px;
 `
 
 const StyledAccountButtonWrapper = styled.div`
@@ -66,21 +62,4 @@ const StyledAccountButtonWrapper = styled.div`
     width: auto;
   }
 `
-
-const StyledMenuButton = styled.button`
-  background: none;
-  border: 0;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-  display: none;
-  @media (max-width: 400px) {
-    align-items: center;
-    display: flex;
-    height: 44px;
-    justify-content: center;
-    width: 44px;
-  }
-`
-
 export default TopBar

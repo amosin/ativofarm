@@ -141,8 +141,11 @@ const FootnoteValue = styled.div`
 const StyledWrapper = styled.div`
   align-items: center;
   display: flex;
+  flex-flow: column nowrap;
+  margin-top: 20px;
   @media (max-width: 768px) {
     width: 100%;
+    flex-direction: column;
     flex-flow: column nowrap;
     align-items: stretch;
   }
