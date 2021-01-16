@@ -134,7 +134,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
       <Card>
         <CardContent>
           <StyledContent>
-            <CardIcon>{farm.icon}</CardIcon>
+            {/*<CardIcon>{farm.icon}</CardIcon>*/}
+            <ImgIcon src={farm.icon} height={40}/>
             <StyledTitle>{farm.name}</StyledTitle>
             <StyledDetails>
               <StyledDetail>Deposit {farm.lpToken}</StyledDetail>
@@ -241,6 +242,7 @@ const StyledLoadingWrapper = styled.div`
 
 const StyledRow = styled.div`
   display: flex;
+  justify-content: center;
   margin-bottom: ${(props) => props.theme.spacing[4]}px;
   flex-flow: row wrap;
   @media (max-width: 768px) {
@@ -262,6 +264,7 @@ const StyledTitle = styled.h4`
   font-weight: 700;
   margin: ${(props) => props.theme.spacing[2]}px 0 0;
   padding: 0;
+  text-align: center;
 `
 
 const StyledContent = styled.div`
@@ -299,5 +302,8 @@ const StyledInsight = styled.div`
   text-align: center;
   padding: 0 12px;
 `
+const ImgIcon = styled.img`
+  height: 40px;
+`;
 
 export default FarmCards

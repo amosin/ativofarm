@@ -1,5 +1,8 @@
 export const white = '#FFF'
-export const black = '#000'
+export const black = {
+  200: '#000',
+  100: '#1f2521'
+}
 
 export const green = {
   500: '##00d1810',
@@ -19,4 +22,8 @@ export const grey = {
   500: '#805e49',
   600: '#5b3926',
   800: '#2d1e12',
+}
+
+export const purple = {
+  100: '#2f2b40'
 }

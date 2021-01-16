@@ -1,4 +1,5 @@
 import React from 'react'
+import coin from '../../assets/img/ativo_coin_logo.png'
 
 interface SushiIconProps {
   size?: number
@@ -15,7 +16,8 @@ const SushiIcon: React.FC<SushiIconProps> = ({ size = 36, v1, v2, v3 }) => (
       filter: v1 ? 'saturate(0.5)' : undefined,
     }}
   >
-    🍊
+    {/*🍊*/}
+    <img src={coin} height="32"/>
   </span>
 )
 

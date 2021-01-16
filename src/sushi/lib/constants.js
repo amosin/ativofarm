@@ -489,7 +489,8 @@ export const supportedPools = [
     name: 'Pastel de Dai com Binance coin',
     symbol: 'DAI-BNB LP',
     tokenSymbol: 'DAI',
-    icon: '⚰',
+    icon: require('../../assets/img/dai_logo.png'),
+    // icon: '⚰',
   },
   {
     pid: 1,
@@ -502,7 +503,8 @@ export const supportedPools = [
     name: 'Pastel de PAST com Binance Coin',
     symbol: 'PAST-BNB LP',
     tokenSymbol: 'DAI',
-    icon: '🍘',
+    icon: require('../../assets/img/eth_logo.png'),
+    // icon: '🍘',
   },
 ]
 

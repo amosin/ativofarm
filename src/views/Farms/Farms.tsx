@@ -14,6 +14,7 @@ import useModal from '../../hooks/useModal'
 import Farm from '../Farm'
 
 import FarmCards from './components/FarmCards'
+import select_pool from '../../assets/img/select_pool.png';
 
 const Farms: React.FC = () => {
   const { path } = useRouteMatch()
@@ -26,7 +27,7 @@ const Farms: React.FC = () => {
           <>
             <Route exact path={path}>
               <PageHeader
-                icon={<img src={logo} height="120" />}
+                icon={<img src={select_pool} height="140" style={{marginTop: -15}} />}
                 subtitle="Earn ATIVO tokens by staking Uniswap SLP Tokens. Note: Current APY does not include 2/3rd ATIVO emission that is locked and will be retroactively disbursed at a later date."
                 title="Select Your Favorite Pool"
               />

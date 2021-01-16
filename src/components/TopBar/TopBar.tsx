@@ -14,7 +14,7 @@ interface TopBarProps {
 const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
   return (
     <StyledTopBar>
-      <div style={{ backgroundColor: 'black', color: 'white', textAlign: 'center', padding: '3px', marginBottom: '10px' }}>This is a project on testnet. There is no ATIVO token yet. Do not get scammed.</div>
+      <div style={{ backgroundColor: '#2a2a2f', color: 'white', textAlign: 'center', padding: '3px', marginBottom: '10px' }}>This is a project on testnet. There is no ATIVO token yet. Do not get scammed.</div>
       <Container size="lg">
         <StyledTopBarInner>
           <StyledLogoWrapper>

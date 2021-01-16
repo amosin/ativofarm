@@ -4,11 +4,13 @@ import Button from '../../../components/Button'
 import Card from '../../../components/Card'
 import CardContent from '../../../components/CardContent'
 import CardIcon from '../../../components/CardIcon'
+import CardImageIcon from '../../../components/CardImageIcon';
 import Label from '../../../components/Label'
 import Value from '../../../components/Value'
 import useEarnings from '../../../hooks/useEarnings'
 import useReward from '../../../hooks/useReward'
 import { getBalanceNumber } from '../../../utils/formatBalance'
+import harvest from '../../../assets/img/harvest.png'
 
 interface HarvestProps {
   pid: number
@@ -24,7 +26,8 @@ const Harvest: React.FC<HarvestProps> = ({ pid }) => {
       <CardContent>
         <StyledCardContentInner>
           <StyledCardHeader>
-            <CardIcon>🍊</CardIcon>
+            {/*<CardIcon>🍊</CardIcon>*/}
+            <CardImageIcon src={harvest}/>
             <Value value={getBalanceNumber(earnings)} />
             <Label text="ATIVO Earned" />
           </StyledCardHeader>

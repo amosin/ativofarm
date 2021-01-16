@@ -7,6 +7,9 @@ import Page from '../../components/Page'
 import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
 import Balances from './components/Balances'
+import coins from '../../assets/img/coins.png';
+import Card from "../../components/Card";
+import CardContent from "../../components/CardContent";
 
 const Home: React.FC = () => {
   return (
@@ -17,12 +20,23 @@ const Home: React.FC = () => {
         subtitle="Stake Uniswap LP tokens to claim your very own ATIVO!"
       />
 
+      {/*<Spacer size={'lg'}/>*/}
+      {/*<Spacer size={'lg'}/>*/}
+      {/*<Spacer size={'lg'}/>*/}
+      {/*<Spacer size={'lg'}/>*/}
       <Container>
+        {/*<Card>*/}
+          {/*<CardContent>*/}
+            {/*<StyledTitle>Ativo Finance is Ready</StyledTitle>*/}
+            {/*<StyledSubtitle>Stake Uniswap LP tokens to claim your very own ATIVO!</StyledSubtitle>*/}
+          {/*</CardContent>*/}
+        {/*</Card>*/}
+        {/*<Spacer size={'sm'}/>*/}
         <Balances />
       </Container>
       <Spacer size="lg" />
       <StyledInfo>
-        🏆<b>Pro Tip</b>: ATIVO-ETH LP token pool yields 4.8x more token
+        🏆&nbsp;<b>Pro Tip</b>:  ATIVO-ETH LP token pool yields 4.8x more token
         rewards per block.
       </StyledInfo>
       <Spacer size="lg" />
@@ -31,14 +45,14 @@ const Home: React.FC = () => {
           margin: '0 auto',
         }}
       >
-        <Button text="🔪 See the Menu" to="/farms" variant="secondary" />
+        <Button to="/farms" variant="secondary" ><img src={coins} height={17}/>&nbsp;See Farming Pools</Button>
       </div>
     </Page>
   )
 }
 
 const StyledInfo = styled.h3`
-  color: ${(props) => props.theme.color.grey[500]};
+  color: ${(props) => props.theme.color.grey[400]};
   font-size: 16px;
   font-weight: 400;
   margin: 0;
@@ -46,7 +60,7 @@ const StyledInfo = styled.h3`
   text-align: center;
 
   > b {
-    color: ${(props) => props.theme.color.grey[600]};
+    color: ${(props) => props.theme.color.grey[500]};
   }
 `
 

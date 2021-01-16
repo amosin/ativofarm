@@ -42,23 +42,26 @@ const Button: React.FC<ButtonProps> = ({
   let fontSize: number
   switch (size) {
     case 'sm':
-      boxShadow = `4px 4px 8px ${color.grey[300]},
-        -8px -8px 16px ${color.grey[100]}FF;`
+      // boxShadow = `2px 2px 4px ${color.grey[300]},
+      //   -4px -4px 8px ${color.grey[100]}FF;`
+      boxShadow = `2px 2px 4px ${color.grey[300]}`
       buttonPadding = spacing[3]
       buttonSize = 36
       fontSize = 14
       break
     case 'lg':
-      boxShadow = `6px 6px 12px ${color.grey[300]},
-        -12px -12px 24px ${color.grey[100]}ff;`
+      // boxShadow = `6px 6px 12px ${color.grey[300]},
+      //   -12px -12px 24px ${color.grey[100]}ff;`
+      boxShadow = `6px 6px 12px ${color.grey[300]}`
       buttonPadding = spacing[4]
       buttonSize = 72
       fontSize = 16
       break
     case 'md':
     default:
-      boxShadow = `6px 6px 12px ${color.grey[300]},
-        -12px -12px 24px -2px ${color.grey[100]}ff;`
+      // boxShadow = `2px 2px 4px ${color.grey[300]},
+      //   -4px -4px 8px -2px ${color.grey[100]}ff;`
+      boxShadow = `2px 2px 4px ${color.grey[300]}`
       buttonPadding = spacing[4]
       buttonSize = 56
       fontSize = 16
@@ -66,7 +69,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const ButtonChild = useMemo(() => {
     if (to) {
-      return <StyledLink to={to}>{text}</StyledLink>
+      return <StyledLink to={to}>{text ? text : children}</StyledLink>
     } else if (href) {
       return <StyledExternalLink href={href} target="__blank">{text}</StyledExternalLink>
     } else {
@@ -84,7 +87,7 @@ const Button: React.FC<ButtonProps> = ({
       padding={buttonPadding}
       size={buttonSize}
     >
-      {children}
+      {/*{children}*/}
       {ButtonChild}
     </StyledButton>
   )
@@ -101,7 +104,7 @@ interface StyledButtonProps {
 
 const StyledButton = styled.button<StyledButtonProps>`
   align-items: center;
-  background-color: ${props => props.theme.color.grey[200]};
+  background-color: ${props => props.theme.color.grey[300]};
   border: 0;
   border-radius: 12px;
   box-shadow: ${props => props.boxShadow};
@@ -118,7 +121,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   pointer-events: ${props => !props.disabled ? undefined : 'none'};
   width: 100%;
   &:hover {
-    background-color: ${props => props.theme.color.grey[100]};
+    background-color: ${props => props.theme.color.grey[200]};
   }
 `
 

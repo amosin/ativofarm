@@ -13,6 +13,7 @@ import useModal from './hooks/useModal'
 import theme from './theme'
 import Farms from './views/Farms'
 import Home from './views/Home'
+import About from './views/About';
 import Staking from "./views/Staking";
 import { CHAIN_ID } from './sushi/lib/constants'
 
@@ -38,6 +39,9 @@ const App: React.FC = () => {
           </Route>
           <Route path="/farms">
             <Farms />
+          </Route>
+          <Route path="/about">
+            <About />
           </Route>
         </Switch>
       </Router>
