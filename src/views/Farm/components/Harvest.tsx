@@ -9,6 +9,7 @@ import Value from '../../../components/Value'
 import useEarnings from '../../../hooks/useEarnings'
 import useReward from '../../../hooks/useReward'
 import { getBalanceNumber } from '../../../utils/formatBalance'
+import AtivoCoinLogo from '../../../assets/img/ativo-coin-logo.png'
 
 interface HarvestProps {
   pid: number
@@ -24,7 +25,9 @@ const Harvest: React.FC<HarvestProps> = ({ pid }) => {
       <CardContent>
         <StyledCardContentInner>
           <StyledCardHeader>
-            <CardIcon>🍊</CardIcon>
+            <CardIcon>
+              <img src={AtivoCoinLogo} height="50"/>
+            </CardIcon>
             <Value value={getBalanceNumber(earnings)} />
             <Label text="ATIVO Earned" />
           </StyledCardHeader>
