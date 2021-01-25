@@ -14,6 +14,8 @@ import ModalContent from '../../ModalContent'
 import ModalTitle from '../../ModalTitle'
 import Spacer from '../../Spacer'
 import Value from '../../Value'
+import AtivoCoinLogo from '../../../assets/img/ativo-coin-logo.png'
+
 
 const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
   const { account, reset } = useWallet()
@@ -35,11 +37,11 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
         <div style={{ display: 'flex' }}>
           <StyledBalanceWrapper>
             <CardIcon>
-              <span>🍣</span>
+                <img src={AtivoCoinLogo} height="50"/>
             </CardIcon>
             <StyledBalance>
               <Value value={getBalanceNumber(sushiBalance)} />
-              <Label text="SUSHI Balance" />
+              <Label text="ATIVO Balance" />
             </StyledBalance>
           </StyledBalanceWrapper>
         </div>
@@ -48,13 +50,11 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
         <Button
           href={`https://etherscan.io/address/${account}`}
           text="View on Etherscan"
-          variant="secondary"
         />
         <Spacer />
         <Button
           onClick={handleSignOutClick}
-          text="Sign out"
-          variant="secondary"
+          text="Sign out "
         />
       </ModalContent>
       <ModalActions>

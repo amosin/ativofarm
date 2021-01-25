@@ -456,7 +456,7 @@ SLP Address on mainnet for reference
 
 
 
-// JUICYSWAP SETTINGS
+// ATIVOSWAP SETTINGS
 
 export const CHAIN_ID = 97
 
@@ -489,7 +489,7 @@ export const supportedPools = [
     name: 'Pastel de Dai com Binance coin',
     symbol: 'DAI-BNB LP',
     tokenSymbol: 'DAI',
-    icon: '⚰',
+    icon: '💡',
   },
   {
     pid: 1,
@@ -502,7 +502,7 @@ export const supportedPools = [
     name: 'Pastel de PAST com Binance Coin',
     symbol: 'PAST-BNB LP',
     tokenSymbol: 'DAI',
-    icon: '🍘',
+    icon: '💰',
   },
 ]
 

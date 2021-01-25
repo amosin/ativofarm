@@ -1,4 +1,4 @@
-import { black, green, grey, red, white } from './colors'
+import { black, green, grey, red, white, new_red } from './colors'
 
 const theme = {
   borderRadius: 12,
@@ -16,6 +16,7 @@ const theme = {
       main: green[500],
     },
     white,
+    new_red
   },
   siteWidth: 1200,
   spacing: {
@@ -27,7 +28,7 @@ const theme = {
     6: 48,
     7: 64,
   },
-  topBarSize: 72
+  topBarSize: 60
 }
 
 export default theme

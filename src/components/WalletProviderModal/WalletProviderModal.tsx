@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
+import { useIntl } from 'react-intl'
 import styled from 'styled-components'
 import { useWallet } from 'use-wallet'
 
 import metamaskLogo from '../../assets/img/metamask-fox.svg'
 import walletConnectLogo from '../../assets/img/wallet-connect.svg'
+import { KEYS } from '../../i18n'
 
 import Button from '../Button'
 import Modal, { ModalProps } from '../Modal'
@@ -16,7 +18,8 @@ import WalletCard from './components/WalletCard'
 
 const WalletProviderModal: React.FC<ModalProps> = ({ onDismiss }) => {
   const { account, connect } = useWallet()
-
+  const intl = useIntl();
+  
   useEffect(() => {
     if (account) {
       onDismiss()
@@ -25,7 +28,7 @@ const WalletProviderModal: React.FC<ModalProps> = ({ onDismiss }) => {
 
   return (
     <Modal>
-      <ModalTitle text="Select a wallet provider." />
+      <ModalTitle text={intl.formatMessage({ id: KEYS.WALLET_PROVIDER_TITLE })} />
 
       <ModalContent>
         <StyledWalletsWrapper>
@@ -48,7 +51,7 @@ const WalletProviderModal: React.FC<ModalProps> = ({ onDismiss }) => {
       </ModalContent>
 
       <ModalActions>
-        <Button text="Cancel" variant="secondary" onClick={onDismiss} />
+        <Button text={intl.formatMessage({ id: KEYS.WALLET_PROVIDER_CANCEL })} onClick={onDismiss} />
       </ModalActions>
     </Modal>
   )

@@ -6,6 +6,8 @@ import Logo from '../Logo'
 
 import AccountButton from './components/AccountButton'
 import Nav from './components/Nav'
+import LanguageButton from './components/LanguageButton';
+import Button from './../Button/Button';
 
 interface TopBarProps {
   onPresentMobileMenu: () => void
@@ -14,18 +16,26 @@ interface TopBarProps {
 const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
   return (
     <StyledTopBar>
-      <div style={{ backgroundColor: 'black', color: 'white', textAlign: 'center', padding: '3px', marginBottom: '10px' }}>This is a project on testnet. There is no ATIVO token yet. Do not get scammed.</div>
-      <Container size="lg">
-        <StyledTopBarInner>
-          <StyledLogoWrapper>
-            <Logo />
-          </StyledLogoWrapper>
-          <Nav />
-          <StyledAccountButtonWrapper>
-            <AccountButton />
-          </StyledAccountButtonWrapper>
-        </StyledTopBarInner>
-      </Container>
+      <div style={{ backgroundColor: 'black', color: 'white', textAlign: 'center', padding: '3px' }}>This is a project on testnet. There is no ATIVO token yet. Do not get scammed.</div>
+
+      <StyledTopBarInner>
+        <Container size="lg" spacing={0}>
+          <StyledTopBarInner>
+            <StyledLogoWrapper>
+              <Logo />
+            </StyledLogoWrapper>
+            <Nav />
+            <StyledAccountButtonWrapper>
+              <AccountButton />
+              <StyledTopGear>
+                <Button size="sm">
+                  <LanguageButton />
+                </Button>
+              </StyledTopGear>
+            </StyledAccountButtonWrapper>
+          </StyledTopBarInner>
+        </Container>
+      </StyledTopBarInner>
     </StyledTopBar>
   )
 }
@@ -39,48 +49,28 @@ const StyledLogoWrapper = styled.div`
 
 const StyledTopBar = styled.div``
 
+const StyledTopGear = styled.div`
+  margin: 2px;
+`
+
 const StyledTopBarInner = styled.div`
   align-items: center;
   display: flex;
   height: ${(props) => props.theme.topBarSize}px;
   justify-content: space-between;
-  max-width: ${(props) => props.theme.siteWidth}px;
   width: 100%;
-`
-const StyledNavWrapper = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  @media (max-width: 400px) {
-    display: none;
-  }
+  background-color: #152b44;
+  padding: 0px;
 `
 
 const StyledAccountButtonWrapper = styled.div`
   align-items: center;
   display: flex;
   justify-content: flex-end;
-  width: 156px;
+  width: 200px;
   @media (max-width: 400px) {
     justify-content: center;
     width: auto;
   }
 `
-
-const StyledMenuButton = styled.button`
-  background: none;
-  border: 0;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-  display: none;
-  @media (max-width: 400px) {
-    align-items: center;
-    display: flex;
-    height: 44px;
-    justify-content: center;
-    width: 44px;
-  }
-`
-
 export default TopBar

@@ -15,6 +15,9 @@ const StyledFooter = styled.footer`
   align-items: center;
   display: flex;
   justify-content: center;
+  margin-top: 20px;
+  background-color: ${props => props.theme.color.grey[200]};
+  padding: 0px;
 `
 const StyledFooterInner = styled.div`
   align-items: center;
