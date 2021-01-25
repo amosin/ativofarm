@@ -4,10 +4,12 @@ import styled from 'styled-components'
 const Card: React.FC = ({ children }) => <StyledCard>{children}</StyledCard>
 
 const StyledCard = styled.div`
-  background: ${(props) => props.theme.color.grey[200]};
-  border: 1px solid ${(props) => props.theme.color.grey[500]};
+  --gradient-to-color: #050a20;
+  --gradient-from-color: #11315f;
+  --gradient-color-stops: var(--gradient-from-color),var(--gradient-to-color,rgba(42,67,101,0));
+  background-image: linear-gradient(to right,var(--gradient-color-stops));
   border-radius: 12px;
-  box-shadow: inset 1px 1px 0px ${(props) => props.theme.color.grey[200]};
+  box-shadow: 3px 3px 4px #1c5593;
   display: flex;
   flex: 1;
   flex-direction: column;

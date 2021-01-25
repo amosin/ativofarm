@@ -95,13 +95,9 @@ interface StyledButtonProps {
 
 const StyledButton = styled.button<StyledButtonProps>`
   align-items: center;
-  --gradient-to-color: #4299e1;
-  --gradient-from-color: #2a4365;
-  --gradient-color-stops: var(--gradient-from-color),var(--gradient-to-color,rgba(42,67,101,0));
-  background-image: linear-gradient(to right,var(--gradient-color-stops));
-  border: 2px solid #e2e8f0;
+  background-color: rgba(0, 209, 255, 0.5);
+  border:none;
   border-radius: 12px;
-  box-shadow: ${props => props.boxShadow};
   color: ${props => !props.disabled ? props.color : `${props.color}55`};
   cursor: pointer;
   display: flex;
@@ -115,10 +111,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   pointer-events: ${props => !props.disabled ? undefined : 'none'};
   width: 100%;
   &:hover {
-    --gradient-to-color: #4e9ddd;
-    --gradient-from-color: #445e83;
-    --gradient-color-stops: var(--gradient-from-color),var(--gradient-to-color,rgba(42,67,101,0));
-    background-image: linear-gradient(to right,var(--gradient-color-stops));
+    background-color: rgba(0, 208, 255, 0.719);
   }
 `
 

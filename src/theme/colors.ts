@@ -19,7 +19,7 @@ export const grey = {
   100: '#ffffff',
   200: '#09092f', // done
   300: '#696280',
-  400: '#828295', // done
+  400: '#bababa', // done
   500: '#8282ff',
   600: '#ffffff',
   800: '#06061b', // done

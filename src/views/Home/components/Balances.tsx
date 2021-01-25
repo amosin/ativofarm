@@ -8,7 +8,6 @@ import CardContent from '../../../components/CardContent'
 import Label from '../../../components/Label'
 import Spacer from '../../../components/Spacer'
 import Value from '../../../components/Value'
-import SushiIcon from '../../../components/SushiIcon'
 import useAllEarnings from '../../../hooks/useAllEarnings'
 import useAllStakedValue from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
@@ -16,6 +15,10 @@ import useTokenBalance from '../../../hooks/useTokenBalance'
 import useSushi from '../../../hooks/useSushi'
 import { getSushiAddress, getSushiSupply } from '../../../sushi/utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
+import AtivoCoinLogo from '../../../assets/img/ativo-coin-logo.png'
+import { useIntl } from 'react-intl'
+import { KEYS } from '../../../i18n'
+
 
 const PendingRewards: React.FC = () => {
   const [start, setStart] = useState(0)
@@ -75,6 +78,8 @@ const Balances: React.FC = () => {
   const sushiBalance = useTokenBalance(getSushiAddress(sushi))
   const { account, ethereum }: { account: any; ethereum: any } = useWallet()
 
+  const intl = useIntl();
+
   useEffect(() => {
     async function fetchTotalSupply() {
       const supply = await getSushiSupply(sushi)
@@ -91,12 +96,14 @@ const Balances: React.FC = () => {
         <CardContent>
           <StyledBalances>
             <StyledBalance>
-              <SushiIcon />
+              <div>
+                <img src={AtivoCoinLogo} height="45" />
+              </div>
               <Spacer />
               <div style={{ flex: 1 }}>
-                <Label text="Your JUICY Balance" />
+                <Label text={intl.formatMessage({ id: KEYS.BALANCE_TITLE })} />
                 <Value
-                  value={!!account ? getBalanceNumber(sushiBalance) : 'Locked'}
+                  value={!!account ? getBalanceNumber(sushiBalance) : intl.formatMessage({ id: KEYS.BALANCE_STATUS })}
                 />
               </div>
             </StyledBalance>
@@ -105,7 +112,7 @@ const Balances: React.FC = () => {
         <Footnote>
           Pending harvest
           <FootnoteValue>
-            <PendingRewards /> JUICY
+            <PendingRewards /> ATIVO
           </FootnoteValue>
         </Footnote>
       </Card>
@@ -113,14 +120,14 @@ const Balances: React.FC = () => {
 
       <Card>
         <CardContent>
-          <Label text="Total JUICY Supply" />
+          <Label text="Total ATIVO Supply" />
           <Value
-            value={totalSupply ? getBalanceNumber(totalSupply) : 'Locked'}
+            value={totalSupply ? getBalanceNumber(totalSupply) : intl.formatMessage({ id: KEYS.BALANCE_STATUS })}
           />
         </CardContent>
         <Footnote>
           New rewards per block
-          <FootnoteValue>100 JUICY</FootnoteValue>
+          <FootnoteValue>100 ATIVO</FootnoteValue>
         </Footnote>
       </Card>
     </StyledWrapper>
@@ -130,8 +137,8 @@ const Balances: React.FC = () => {
 const Footnote = styled.div`
   font-size: 14px;
   padding: 8px 20px;
-  color: ${(props) => props.theme.color.grey[400]};
-  border-top: solid 1px ${(props) => props.theme.color.grey[300]};
+  color: ${(props) => props.theme.color.grey[100]};
+  border-top: solid 1px ${(props) => props.theme.color.grey[200]};
 `
 const FootnoteValue = styled.div`
   font-family: 'Roboto Mono', monospace;
@@ -140,13 +147,9 @@ const FootnoteValue = styled.div`
 
 const StyledWrapper = styled.div`
   align-items: center;
-  display: flex;
-  flex-flow: column nowrap;
   margin-top: 20px;
   @media (max-width: 768px) {
     width: 100%;
-    flex-direction: column;
-    flex-flow: column nowrap;
     align-items: stretch;
   }
 `
