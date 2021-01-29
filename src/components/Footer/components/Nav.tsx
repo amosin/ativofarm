@@ -19,9 +19,9 @@ const Nav: React.FC = () => {
       <StyledLink target="_blank" href="#">
         Twitter
       </StyledLink>
-      <StyledLink target="_blank" href="#">
+      {/*<StyledLink target="_blank" href="#">
         Medium
-      </StyledLink>
+  </StyledLink>*/}
     </StyledNav>
   )
 }
