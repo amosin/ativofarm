@@ -15,6 +15,8 @@ import ModalTitle from '../../ModalTitle'
 import Spacer from '../../Spacer'
 import Value from '../../Value'
 import AtivoCoinLogo from '../../../assets/img/ativoCoinSmaller.png'
+import { KEYS } from '../../../i18n'
+import { useIntl } from 'react-intl'
 
 const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
   const { account, reset } = useWallet()
@@ -26,21 +28,21 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
 
   const sushi = useSushi()
   const sushiBalance = useTokenBalance(getSushiAddress(sushi))
-
+  const intl = useIntl();
   return (
     <Modal>
-      <ModalTitle text="My Account" />
+      <ModalTitle text={intl.formatMessage({ id: KEYS.MY_ACCOUNT })} />
       <ModalContent>
         <Spacer />
 
         <div style={{ display: 'flex' }}>
           <StyledBalanceWrapper>
             <CardIcon>
-                <img src={AtivoCoinLogo} height="50"/>
+                <img src={AtivoCoinLogo} height="100"/>
             </CardIcon>
             <StyledBalance>
               <Value value={getBalanceNumber(sushiBalance)} />
-              <Label text="ATIVO Balance" />
+              <Label text={intl.formatMessage({ id: KEYS.ATIVO_BALANCE })} />
             </StyledBalance>
           </StyledBalanceWrapper>
         </div>
@@ -48,16 +50,16 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
         <Spacer />
         <Button
           href={`https://etherscan.io/address/${account}`}
-          text="View on Etherscan"
+          text={intl.formatMessage({ id: KEYS.VIEW_ON_ETHERSCAN })}
         />
         <Spacer />
         <Button
           onClick={handleSignOutClick}
-          text="Sign out "
+          text={intl.formatMessage({ id: KEYS.SIGN_OUT })}
         />
       </ModalContent>
       <ModalActions>
-        <Button onClick={onDismiss} text="Cancel" />
+        <Button onClick={onDismiss} text={intl.formatMessage({ id: KEYS.CANCEL })} />
       </ModalActions>
     </Modal>
   )

@@ -110,7 +110,7 @@ const Balances: React.FC = () => {
           </StyledBalances>
         </CardContent>
         <Footnote>
-          Pending harvest
+        {intl.formatMessage({ id: KEYS.PENDING_HARVEST })}
           <FootnoteValue>
             <PendingRewards /> ATIVO
           </FootnoteValue>
@@ -126,7 +126,7 @@ const Balances: React.FC = () => {
           />
         </CardContent>
         <Footnote>
-          New rewards per block
+        {intl.formatMessage({ id: KEYS.NEW_REWARDS_PER_BLOCK })}
           <FootnoteValue>100 ATIVO</FootnoteValue>
         </Footnote>
       </Card>

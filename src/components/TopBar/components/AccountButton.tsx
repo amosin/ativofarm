@@ -5,6 +5,8 @@ import useModal from '../../../hooks/useModal'
 import Button from '../../Button'
 import WalletProviderModal from '../../WalletProviderModal'
 import AccountModal from './AccountModal'
+import { KEYS } from '../../../i18n'
+import { useIntl } from 'react-intl'
 
 interface AccountButtonProps {}
 
@@ -14,7 +16,7 @@ const AccountButton: React.FC<AccountButtonProps> = (props) => {
     <WalletProviderModal />,
     'provider',
   )
-
+  const intl = useIntl();
   const { account } = useWallet()
 
   const handleUnlockClick = useCallback(() => {
@@ -24,9 +26,9 @@ const AccountButton: React.FC<AccountButtonProps> = (props) => {
   return (
     <StyledAccountButton>
       {!account ? (
-        <Button onClick={handleUnlockClick} size="sm" text="🔓 Connect"/>
+        <Button onClick={handleUnlockClick} size="sm" text={intl.formatMessage({ id: KEYS.CONNECT })}/>
       ) : (
-        <Button onClick={onPresentAccountModal} size="sm" text="My Wallet 💼" />
+        <Button onClick={onPresentAccountModal} size="sm" text={intl.formatMessage({ id: KEYS.MY_WALLET })} />
       )}
     </StyledAccountButton>
   )

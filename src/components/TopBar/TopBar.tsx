@@ -8,15 +8,19 @@ import AccountButton from './components/AccountButton'
 import Nav from './components/Nav'
 import LanguageButton from './components/LanguageButton';
 import Button from './../Button/Button';
+import { useIntl } from 'react-intl'
+import { KEYS } from '../../i18n'
 
 interface TopBarProps {
   onPresentMobileMenu: () => void
 }
 
+
 const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
+  const intl = useIntl();
   return (
     <StyledTopBar>
-      <div style={{ backgroundColor: 'black', color: 'white', textAlign: 'center', padding: '3px' }}>This is a project on Kovan testnet. There is no ATIVO token yet on Mainnet. Do not get scammed.</div>
+      <div style={{ backgroundColor: 'black', color: 'white', textAlign: 'center', padding: '3px' }}>{intl.formatMessage({ id: KEYS.TESTNET_ALERT })}</div>
 
       <StyledTopBarInner>
         <Container size="lg" spacing={0}>
