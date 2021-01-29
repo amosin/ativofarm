@@ -1,8 +1,7 @@
-import React, { useCallback, useReducer, useState } from 'react'
+import React, { useReducer } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import { UseWalletProvider } from 'use-wallet'
-import MobileMenu from './components/MobileMenu'
 import TopBar from './components/TopBar'
 import FarmsProvider from './contexts/Farms'
 import ModalsProvider from './contexts/Modals'
@@ -19,21 +18,10 @@ import { I18nProvider } from './i18n'
 
 
 const App: React.FC = () => {
-  const [mobileMenu, setMobileMenu] = useState(false)
-
-  const handleDismissMobileMenu = useCallback(() => {
-    setMobileMenu(false)
-  }, [setMobileMenu])
-
-  const handlePresentMobileMenu = useCallback(() => {
-    setMobileMenu(true)
-  }, [setMobileMenu])
-
   return (
     <Providers>
       <Router>
-        <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
-        <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
+        <TopBar />
         <Switch>
           <Route path="/" exact>
             <Home />
