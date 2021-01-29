@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Switch, useRouteMatch } from 'react-router-dom'
 import { useWallet } from 'use-wallet'
 
-import ativoLogo from '../../assets/img/logo-ativo.webp'
+import selectPoolImage from '../../assets/img/select_pool.png'
 
 import Button from '../../components/Button'
 import Page from '../../components/Page'
@@ -26,7 +26,7 @@ const Farms: React.FC = () => {
           <>
             <Route exact path={path}>
               <PageHeader
-                icon={<img src={ativoLogo} height="120" />}
+                icon={<img src={selectPoolImage} height="120" />}
                 subtitle="Earn ATIVO tokens by staking Uniswap SLP Tokens. Note: Current APY does not include 2/3rd ATIVO emission that is locked and will be retroactively disbursed at a later date."
                 title="Select Your Favorite Pool"
               />
