@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ativoLogo from '../../assets/img/logo-ativo.webp'
 import Button from '../../components/Button'
+import coins from '../../assets/img/coins.png'
 import Page from '../../components/Page'
 import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
@@ -26,7 +27,9 @@ const About: React.FC = () => {
           margin: '0 auto',
         }}
       >
-        <Button text="🔪 See the Menu" to="/farms" />
+        <Button text="See Farming pools" to="/farms">
+              <img src={coins} style={{height: 20, marginRight: 10}} alt="coins-logo"/>
+          </Button>
       </div>
     </Page>
   )

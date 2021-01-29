@@ -18,7 +18,13 @@ const LanguageModal: React.FC<ModalProps> = ({ onDismiss }) => {
     })
     onDismiss()
   }
-
+  const onPortugueseSelect = () => {
+    dispatch({
+      type: CHANGE_LANGUAGE,
+      payload: 'pt-br',
+    })
+    onDismiss()
+  }
   const onFrenchSelect = () => {
     dispatch({
       type: CHANGE_LANGUAGE,
@@ -35,6 +41,11 @@ const LanguageModal: React.FC<ModalProps> = ({ onDismiss }) => {
         <Button
           onClick={onEnglishClick}
           text="🇬🇧 English"
+        />
+        <Spacer />
+        <Button
+          onClick={onPortugueseSelect}
+          text="🇧🇷 Português"
         />
         <Spacer />
         <Button

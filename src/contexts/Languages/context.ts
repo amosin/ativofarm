@@ -3,7 +3,7 @@ import { IState } from './types';
 
 export const initialState: IState = {
   lang: localStorage.getItem('ativo-lang') || 'en-us',
-  languages: ['en-us', 'fr-fr'],
+  languages: ['en-us', 'pt-br','fr-fr'],
   dispatch: () => ({}),
 };
 

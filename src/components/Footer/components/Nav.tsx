@@ -5,22 +5,16 @@ const Nav: React.FC = () => {
   return (
     <StyledNav>
       <StyledLink
-        target="_blank"
-        href="#"
-      >
-        ATIVO Master Contract
+        target="_blank" href="https://github.com/ativofinance"> Github
       </StyledLink>
-      <StyledLink target="_blank" href="#">
-        Discord
+      <StyledLink target="_blank" href="https://github.com/ativofinance">
+        Telegram
       </StyledLink>
-      <StyledLink target="_blank" href="#">
-        Github
+      <StyledLink target="_blank" href="https://docs.ativo.finance">
+        Documentation
       </StyledLink>
-      <StyledLink target="_blank" href="#">
+      <StyledLink target="_blank" href="https://twitter.com/AtivoFinance">
         Twitter
-      </StyledLink>
-      <StyledLink target="_blank" href="#">
-        Medium
       </StyledLink>
     </StyledNav>
   )
