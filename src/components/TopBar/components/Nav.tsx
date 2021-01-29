@@ -9,9 +9,9 @@ const Nav: React.FC = () => {
 
   return (
     <StyledNav>
-      {/* <StyledLink exact activeClassName="active" to="/">
+      <StyledLink exact activeClassName="active" to="/">
         {intl.formatMessage({ id: KEYS.HOME })}
-      </StyledLink> */}
+      </StyledLink>
       <StyledLink exact activeClassName="active" to="/farms">
       {intl.formatMessage({ id: KEYS.MENU })}
       </StyledLink>
