@@ -14,8 +14,7 @@ import ModalContent from '../../ModalContent'
 import ModalTitle from '../../ModalTitle'
 import Spacer from '../../Spacer'
 import Value from '../../Value'
-import AtivoCoinLogo from '../../../assets/img/ativo-coin-logo.png'
-
+import AtivoCoinLogo from '../../../assets/img/ativoCoinSmaller.png'
 
 const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
   const { account, reset } = useWallet()
