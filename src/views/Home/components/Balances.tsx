@@ -15,7 +15,7 @@ import useTokenBalance from '../../../hooks/useTokenBalance'
 import useSushi from '../../../hooks/useSushi'
 import { getSushiAddress, getSushiSupply } from '../../../sushi/utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
-import AtivoCoinLogo from '../../../assets/img/ativo-coin-logo.png'
+import AtivoCoinLogo from '../../../assets/img/ativoCoinSmaller.png'
 import { useIntl } from 'react-intl'
 import { KEYS } from '../../../i18n'
 

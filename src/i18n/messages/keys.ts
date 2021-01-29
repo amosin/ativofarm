@@ -1,4 +1,5 @@
 export default {
+  LANG : 'EN',
   ABOUT : 'about',
   ABOUT_TITLE: 'about.title',
   ABOUT_TEXT: 'about.text',

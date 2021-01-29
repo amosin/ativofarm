@@ -16,7 +16,7 @@ interface TopBarProps {
 const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
   return (
     <StyledTopBar>
-      <div style={{ backgroundColor: 'black', color: 'white', textAlign: 'center', padding: '3px' }}>This is a project on testnet. There is no ATIVO token yet. Do not get scammed.</div>
+      <div style={{ backgroundColor: 'black', color: 'white', textAlign: 'center', padding: '3px' }}>This is a project on Kovan testnet. There is no ATIVO token yet on Mainnet. Do not get scammed.</div>
 
       <StyledTopBarInner>
         <Container size="lg" spacing={0}>
@@ -27,12 +27,12 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
             <Nav />
             <StyledAccountButtonWrapper>
               <AccountButton />
-              <StyledTopGear>
+            </StyledAccountButtonWrapper>
+            <StyledTopGear>
                 <Button size="sm">
                   <LanguageButton />
                 </Button>
               </StyledTopGear>
-            </StyledAccountButtonWrapper>
           </StyledTopBarInner>
         </Container>
       </StyledTopBarInner>
@@ -41,7 +41,7 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
 }
 
 const StyledLogoWrapper = styled.div`
-  width: 260px;
+  width: 100%;
   @media (max-width: 400px) {
     width: auto;
   }
@@ -67,7 +67,7 @@ const StyledAccountButtonWrapper = styled.div`
   align-items: center;
   display: flex;
   justify-content: flex-end;
-  width: 200px;
+  width: 100%;
   @media (max-width: 400px) {
     justify-content: center;
     width: auto;
