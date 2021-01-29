@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import ativoLogo from '../../assets/img/logo-ativo.webp'
+import ativoLogo from '../../assets/img/ativoCoinSmaller.png'
 import coins from '../../assets/img/coins.png'
 import Button from '../../components/Button'
 import Container from '../../components/Container'
