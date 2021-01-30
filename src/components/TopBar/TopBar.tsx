@@ -54,15 +54,15 @@ const TopBar = () => {
               </StyledLogoWrapper>
               <StyledBurgerMenu>
                 <button type="button" onClick={handleMenuClick}>
-                  <StyledSvg viewBox="0 0 24 24">
+                  <StyledSvg>
                     {!IsMenuHidden ? (
                       <path
-                        fillRule="evenodd"
+                        height="8.0556vw"
                         d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
                       />
                     ) : (
                         <path
-                          fillRule="evenodd"
+                        height="8.0556vw"
                           d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
                         />
                       )}
@@ -122,12 +122,13 @@ const StyledLink = styled(NavLink)`
 
 const StyledLogoWrapper = styled.div`
   width: 100%;
+  margin-left: 20px;
   @media (max-width: 400px) {
     width: auto;
   }
 `
 const StyledBurgerMenu = styled.div`
-  margin-left: 16px;
+  margin-left: 160px;
   @media (min-width: 660px) { // raise this
       display: none;
   }
@@ -136,7 +137,6 @@ const StyledSvg = styled.svg`
  width: 1.5rem;
  height: 1.5rem;
  fill: currentColor;
- background-color: rgba(237,242,247,1);
 `
 
 const StyledTopBar = styled.div``
