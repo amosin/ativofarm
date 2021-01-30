@@ -6,6 +6,8 @@ import ModalActions from '../../../components/ModalActions'
 import ModalTitle from '../../../components/ModalTitle'
 import TokenInput from '../../../components/TokenInput'
 import { getFullDisplayBalance } from '../../../utils/formatBalance'
+import { useIntl } from 'react-intl';
+import { KEYS } from '../../../i18n'
 
 interface WithdrawModalProps extends ModalProps {
   max: BigNumber
@@ -19,6 +21,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
   max,
   tokenName = '',
 }) => {
+  const intl = useIntl();
   const [val, setVal] = useState('')
   const [pendingTx, setPendingTx] = useState(false)
 
@@ -39,7 +42,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
 
   return (
     <Modal>
-      <ModalTitle text={`Withdraw ${tokenName}`} />
+      <ModalTitle text={`${intl.formatMessage({ id: KEYS.WITHDRAW })} ${tokenName}`} />
       <TokenInput
         onSelectMax={handleSelectMax}
         onChange={handleChange}
@@ -48,10 +51,10 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
         symbol={tokenName}
       />
       <ModalActions>
-        <Button text="Cancel" variant="secondary" onClick={onDismiss} />
+        <Button text={intl.formatMessage({ id: KEYS.CANCEL })} variant="secondary" onClick={onDismiss} />
         <Button
           disabled={pendingTx}
-          text={pendingTx ? 'Pending Confirmation' : 'Confirm'}
+          text={pendingTx ? intl.formatMessage({ id: KEYS.PENDING_CONFIRMATION }) : intl.formatMessage({ id: KEYS.CONFIRM })}
           onClick={async () => {
             setPendingTx(true)
             await onConfirm(val)

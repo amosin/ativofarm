@@ -20,6 +20,8 @@ import useUnstake from '../../../hooks/useUnstake'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
+import { useIntl } from 'react-intl';
+import { KEYS } from '../../../i18n'
 
 interface StakeProps {
   lpContract: Contract
@@ -28,6 +30,7 @@ interface StakeProps {
 }
 
 const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName }) => {
+  const intl = useIntl();
   const [requestedApproval, setRequestedApproval] = useState(false)
 
   const allowance = useAllowance(lpContract)
@@ -75,20 +78,20 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName }) => {
           <StyledCardHeader>
             <CardIcon>👨🏻‍🍳</CardIcon>
             <Value value={getBalanceNumber(stakedBalance)} />
-            <Label text={`${tokenName} Tokens Staked`} />
+            <Label text={`${tokenName} ${intl.formatMessage({ id: KEYS.TOKENS_STAKED })}`} />
           </StyledCardHeader>
           <StyledCardActions>
             {!allowance.toNumber() ? (
               <Button
                 disabled={requestedApproval}
                 onClick={handleApprove}
-                text={`Approve ${tokenName}`}
+                text={`${intl.formatMessage({ id: KEYS.APPROVE })} ${tokenName}`}
               />
             ) : (
               <>
                 <Button
                   disabled={stakedBalance.eq(new BigNumber(0))}
-                  text="Unstake"
+                  text={intl.formatMessage({ id: KEYS.UNSTAKE })}
                   onClick={onPresentWithdraw}
                 />
                 <StyledActionSpacer />

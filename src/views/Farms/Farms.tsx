@@ -14,8 +14,12 @@ import useModal from '../../hooks/useModal'
 import Farm from '../Farm'
 
 import FarmCards from './components/FarmCards'
+import { useIntl } from 'react-intl';
+import { KEYS } from '../../i18n'
+
 
 const Farms: React.FC = () => {
+  const intl = useIntl();
   const { path } = useRouteMatch()
   const { account } = useWallet()
   const [onPresentWalletProviderModal] = useModal(<WalletProviderModal />)
@@ -27,8 +31,8 @@ const Farms: React.FC = () => {
             <Route exact path={path}>
               <PageHeader
                 icon={<img src={selectPoolImage} height="120" />}
-                subtitle="Earn ATIVO tokens by staking Uniswap SLP Tokens. Note: Current APY does not include 2/3rd ATIVO emission that is locked and will be retroactively disbursed at a later date."
-                title="Select Your Favorite Pool"
+                subtitle={intl.formatMessage({ id: KEYS.FARMS_EXPLAIN })}
+                title={intl.formatMessage({ id: KEYS.SELECT_FAVORITE_POOL })}
               />
               <FarmCards />
             </Route>
@@ -47,7 +51,7 @@ const Farms: React.FC = () => {
           >
             <Button
               onClick={onPresentWalletProviderModal}
-              text="🔓 Unlock Wallet"
+              text={intl.formatMessage({ id: KEYS.UNLOCK_WALLET })}
             />
           </div>
         )}

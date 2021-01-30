@@ -8,6 +8,8 @@ import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
 import { useIntl } from 'react-intl';
 import { KEYS } from '../../i18n'
+import Container from '../../components/Container'
+import AboutCards from './components/AboutCards'
 
 const About: React.FC = () => {
   const intl = useIntl();
@@ -17,17 +19,27 @@ const About: React.FC = () => {
         icon={<img src={ativoLogo} height={120} />}
         title={intl.formatMessage({ id: KEYS.ABOUT_TITLE })}
       />
-      <Spacer size="lg" />
+     
       <StyledInfo>
-        <b>Who are we ? </b> : {intl.formatMessage({ id: KEYS.ABOUT_TEXT })}
+        <b>{intl.formatMessage({ id: KEYS.WHO_ARE_WE })}</b> : {intl.formatMessage({ id: KEYS.ABOUT_TEXT })} 
       </StyledInfo>
+      <Spacer size="lg" />
+      
+      <StyledInfo>
+        <b>{intl.formatMessage({ id: KEYS.WHO_ARE_WE2 })}</b>  {intl.formatMessage({ id: KEYS.ABOUT_TEXT2 })} 
+      </StyledInfo>
+      <Spacer size="md" />
+
+      <Container size="sm">
+        <AboutCards />
+      </Container>
       <Spacer size="lg" />
       <div
         style={{
           margin: '0 auto',
         }}
       >
-        <Button text="See Farming pools" to="/farms">
+        <Button text={intl.formatMessage({ id: KEYS.SEE_FARMING_POOLS })} to="/farms">
               <img src={coins} style={{height: 20, marginRight: 10}} alt="coins-logo"/>
           </Button>
       </div>

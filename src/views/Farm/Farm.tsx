@@ -12,8 +12,11 @@ import { getMasterChefContract } from '../../sushi/utils'
 import { getContract } from '../../utils/erc20'
 import Harvest from './components/Harvest'
 import Stake from './components/Stake'
+import { useIntl } from 'react-intl';
+import { KEYS } from '../../i18n'
 
 const Farm: React.FC = () => {
+  const intl = useIntl();
   const { farmId } = useParams()
   const {
     pid,
@@ -58,7 +61,7 @@ const Farm: React.FC = () => {
     <>
       <PageHeader
         icon={icon}
-        subtitle={`Deposit ${lpTokenName}  Tokens and earn ${earnTokenName}`}
+        subtitle={`${intl.formatMessage({ id: KEYS.DEPOSIT })} ${lpTokenName}  ${intl.formatMessage({ id: KEYS.TOKENS_AND_EARN })} ${earnTokenName}`}
         // title={name}
       />
       <StyledFarm>
@@ -77,15 +80,14 @@ const Farm: React.FC = () => {
         </StyledCardsWrapper>
         <Spacer size="lg" />
         <StyledInfo>
-          ⭐️ Every time you stake and unstake LP tokens, the contract will
-          automagically harvest ATIVO rewards for you!
+        {intl.formatMessage({ id: KEYS.FARMS_EXPLAIN2 })}
         </StyledInfo>
         <Spacer size="md" />
         <StyledLink
           target="__blank"
           href={`https://sushiswap.vision/pair/${lpTokenAddress}`}
         >
-          {lpTokenName} Info
+          {lpTokenName} {intl.formatMessage({ id: KEYS.LP_INFO })}
         </StyledLink>
       </StyledFarm>
     </>

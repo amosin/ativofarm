@@ -30,7 +30,7 @@ const Home: React.FC = () => {
       </StyledInfo>
       <Spacer size="lg" />
       <StyledFarmsButton>
-          <Button text="See Farming pools" to="/farms">
+          <Button text={intl.formatMessage({ id: KEYS.SEE_FARMING_POOLS })} to="/farms">
               <img src={coins} style={{height: 20, marginRight: 10}} alt="coins-logo"/>
           </Button>
       </StyledFarmsButton>

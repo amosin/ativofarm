@@ -10,12 +10,15 @@ import useEarnings from '../../../hooks/useEarnings'
 import useReward from '../../../hooks/useReward'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 import AtivoCoinLogo from '../../../assets/img/ativo-coin-logo.png'
+import { useIntl } from 'react-intl';
+import { KEYS } from '../../../i18n'
 
 interface HarvestProps {
   pid: number
 }
 
 const Harvest: React.FC<HarvestProps> = ({ pid }) => {
+  const intl = useIntl();
   const earnings = useEarnings(pid)
   const [pendingTx, setPendingTx] = useState(false)
   const { onReward } = useReward(pid)
@@ -29,12 +32,12 @@ const Harvest: React.FC<HarvestProps> = ({ pid }) => {
               <img src={AtivoCoinLogo} height="50"/>
             </CardIcon>
             <Value value={getBalanceNumber(earnings)} />
-            <Label text="ATIVO Earned" />
+            <Label text={intl.formatMessage({ id: KEYS.ATIVO_EARNED })} />
           </StyledCardHeader>
           <StyledCardActions>
             <Button
               disabled={!earnings.toNumber() || pendingTx}
-              text={pendingTx ? 'Collecting ATIVO' : 'Harvest'}
+              text={pendingTx ? intl.formatMessage({ id: KEYS.COLLECTING_ATIVO }) : intl.formatMessage({ id: KEYS.HARVEST })}
               onClick={async () => {
                 setPendingTx(true)
                 await onReward()

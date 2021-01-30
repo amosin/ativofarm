@@ -7,7 +7,7 @@ const Nav: React.FC = () => {
       <StyledLink
         target="_blank" href="https://github.com/ativofinance"> Github
       </StyledLink>
-      <StyledLink target="_blank" href="https://github.com/ativofinance">
+      <StyledLink target="_blank" href="Yearbook">
         Telegram
       </StyledLink>
       <StyledLink target="_blank" href="https://docs.ativo.finance">

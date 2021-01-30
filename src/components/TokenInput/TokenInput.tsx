@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 import Button from '../Button'
 import Input, { InputProps } from '../Input'
+import { useIntl } from 'react-intl';
+import { KEYS } from '../../i18n'
 
 interface TokenInputProps extends InputProps {
   max: number | string,
@@ -17,9 +19,10 @@ const TokenInput: React.FC<TokenInputProps> = ({
   onSelectMax,
   value,
 }) => {
+  const intl = useIntl();
   return (
     <StyledTokenInput>
-      <StyledMaxText>{max.toLocaleString()} {symbol} Available</StyledMaxText>
+      <StyledMaxText>{max.toLocaleString()} {symbol} {intl.formatMessage({ id: KEYS.AVAILABLE })}</StyledMaxText>
       <Input
         endAdornment={(
           <StyledTokenAdornmentWrapper>
