@@ -28,7 +28,7 @@ const AccountButton: React.FC<AccountButtonProps> = (props) => {
       {!account ? (
         <Button onClick={handleUnlockClick} size="sm" text={intl.formatMessage({ id: KEYS.CONNECT })}/>
       ) : (
-        <Button onClick={onPresentAccountModal} size="sm" text={intl.formatMessage({ id: KEYS.MY_WALLET })} />
+        <Button onClick={onPresentAccountModal} size="sm" text={account.slice(0,5) + '...' + account.slice(-3)} />
       )}
     </StyledAccountButton>
   )
