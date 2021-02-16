@@ -1,24 +1,24 @@
 import {useCallback} from 'react'
 
-import useSushi from './useSushi'
+import useAtivo from './useAtivo'
 import {useWallet} from 'use-wallet'
 
-import {leave, getXSushiStakingContract} from '../sushi/utils'
+import {leave, getXAtivoStakingContract} from '../ativo/utils'
 
 const useLeave = () => {
   const {account} = useWallet()
-  const sushi = useSushi()
+  const ativo = useAtivo()
 
   const handle = useCallback(
     async (amount: string) => {
       const txHash = await leave(
-        getXSushiStakingContract(sushi),
+        getXAtivoStakingContract(ativo),
         amount,
         account,
       )
       console.log(txHash)
     },
-    [account, sushi],
+    [account, ativo],
   )
 
   return {onLeave: handle}

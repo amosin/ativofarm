@@ -39,7 +39,7 @@ const StyledText = styled.span`
   }
 `
 
-const MasterChefText = styled.span`
+const AtivoFarmText = styled.span`
   font-family: 'Kaushan Script', sans-serif;
 `
 

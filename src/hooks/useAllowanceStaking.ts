@@ -1,20 +1,20 @@
 import {useCallback, useEffect, useState} from 'react'
 
 import BigNumber from 'bignumber.js'
-import useSushi from './useSushi'
+import useAtivo from './useAtivo'
 import {useWallet} from 'use-wallet'
 import {provider} from 'web3-core'
 import {Contract} from 'web3-eth-contract'
 
 import {getAllowance} from '../utils/erc20'
-import {getMasterChefContract, getSushiContract, getXSushiStakingContract} from '../sushi/utils'
+import {getAtivoFarmContract, getAtivoContract, getXAtivoStakingContract} from '../ativo/utils'
 
 const useAllowanceStaking = () => {
   const [allowance, setAllowance] = useState(new BigNumber(0))
   const {account}: { account: string; ethereum: provider } = useWallet()
-  const sushi = useSushi()
-  const lpContract = getSushiContract(sushi)
-  const stakingContract = getXSushiStakingContract(sushi)
+  const ativo = useAtivo()
+  const lpContract = getAtivoContract(ativo)
+  const stakingContract = getXAtivoStakingContract(ativo)
 
   const fetchAllowance = useCallback(async () => {
     const allowance = await getAllowance(

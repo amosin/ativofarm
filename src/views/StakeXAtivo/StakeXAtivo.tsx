@@ -3,27 +3,27 @@ import styled from 'styled-components'
 import {useWallet} from 'use-wallet'
 import {provider} from 'web3-core'
 import Spacer from '../../components/Spacer'
-import useSushi from '../../hooks/useSushi'
+import useAtivo from '../../hooks/useAtivo'
 import {getContract} from '../../utils/erc20'
-import UnstakeXSushi from './components/UnstakeXSushi'
-import StakeSushi from "./components/StakeSushi";
+import UnstakeXAtivo from './components/UnstakeXAtivo'
+import StakeAtivo from "./components/StakeAtivo";
 
-import {contractAddresses} from '../../sushi/lib/constants'
-import {getXSushiSupply} from "../../sushi/utils";
+import {contractAddresses} from '../../ativo/lib/constants'
+import {getXAtivoSupply} from "../../ativo/utils";
 import BigNumber from "bignumber.js";
 import {getBalanceNumber} from "../../utils/formatBalance";
-import { CHAIN_ID } from '../../sushi/lib/constants'
+import { CHAIN_ID } from '../../ativo/lib/constants'
 
-const StakeXSushi: React.FC = () => {
+const StakeXAtivo: React.FC = () => {
   const {
     tokenAddress,
   } = {
-    tokenAddress: contractAddresses.xSushi[CHAIN_ID],
+    tokenAddress: contractAddresses.xAtivo[CHAIN_ID],
   }
 
   const [totalSupply, setTotalSupply] = useState<BigNumber>()
 
-  const sushi = useSushi()
+  const ativo = useAtivo()
   const {ethereum} = useWallet()
 
   useEffect(() => {
@@ -32,13 +32,13 @@ const StakeXSushi: React.FC = () => {
 
   useEffect(() => {
     async function fetchTotalSupply() {
-      const supply = await getXSushiSupply(sushi)
+      const supply = await getXAtivoSupply(ativo)
       setTotalSupply(supply)
     }
-    if (sushi) {
+    if (ativo) {
       fetchTotalSupply()
     }
-  }, [sushi, setTotalSupply])
+  }, [ativo, setTotalSupply])
 
 
 
@@ -52,13 +52,13 @@ const StakeXSushi: React.FC = () => {
       <StyledFarm>
         <StyledCardsWrapper>
           <StyledCardWrapper>
-            <UnstakeXSushi
+            <UnstakeXAtivo
               lpContract={lpContract}
             />
           </StyledCardWrapper>
           <Spacer/>
           <StyledCardWrapper>
-            <StakeSushi
+            <StakeAtivo
             />
           </StyledCardWrapper>
         </StyledCardsWrapper>
@@ -67,9 +67,9 @@ const StakeXSushi: React.FC = () => {
           <StyledCardWrapper>
             <StyledInfo>
               ℹ️️ You will earn a portion of the swaps fees based on the amount
-              of xSushi held relative the weight of the staking. xSushi can be minted
-              by staking Sushi. To redeem Sushi staked plus swap fees convert xSushi
-              back to Sushi. {totalSupply ? `There are currently ${getBalanceNumber(totalSupply)} xSUSHI in the whole pool.` : '' }
+              of xAtivo held relative the weight of the staking. xAtivo can be minted
+              by staking Ativo. To redeem Ativo staked plus swap fees convert xAtivo
+              back to Ativo. {totalSupply ? `There are currently ${getBalanceNumber(totalSupply)} xATIVO in the whole pool.` : '' }
             </StyledInfo>
           </StyledCardWrapper>
         </StyledCardsWrapper>
@@ -116,4 +116,4 @@ const StyledInfo = styled.h3`
   text-align: center;
 `
 
-export default StakeXSushi
+export default StakeXAtivo

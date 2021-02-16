@@ -35,20 +35,20 @@ export const addressMap = {
   SNX: '0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F',
   COMP: '0xc00e94Cb662C3520282E6f5717214004A7f26888',
   LEND: '0x80fB784B7eD66730e8b1DBd9820aFD29931aab03',
-  SUSHIYCRV: '0x2C7a51A357d5739C5C74Bf3C96816849d2c9F726',
+  ATIVOYCRV: '0x2C7a51A357d5739C5C74Bf3C96816849d2c9F726',
 }
 
 // export const contractAddresses = {
-//   sushi: {
+//   ativo: {
 //     1: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
 //   },
-//   masterChef: {
+//   ativoFarm: {
 //     1: '0xc2edad668740f1aa35e4d8f227fb8e17dca888cd',
 //   },
 //   weth: {
 //     1: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
 //   },
-//   xSushi: {
+//   xAtivo: {
 //     1: '0x8798249c2e607446efb7ad49ec89dd1865ff4272'
 //   }
 // }
@@ -69,7 +69,7 @@ SLP Address on mainnet for reference
 9  BAND 0xf421c3f2e695c2d4c0765379ccace8ade4a480d9
 10 AMPL 0xc5be99a02c6857f9eac67bbce58df5572498f40c
 11 YFI  0x2fdbadf3c4d5a8666bc06645b8358ab803996e28
-12 SUSHI 0xce84867c3c02b05dc570d0135103d3fb9cc19433
+12 ATIVO 0xce84867c3c02b05dc570d0135103d3fb9cc19433
 */
 
 // export const supportedPools = [
@@ -81,9 +81,9 @@ SLP Address on mainnet for reference
 //     tokenAddresses: {
 //       1: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
 //     },
-//     name: 'Sushi Party!',
-//     symbol: 'SUSHI-ETH SLP',
-//     tokenSymbol: 'SUSHI',
+//     name: 'Ativo Party!',
+//     symbol: 'ATIVO-ETH SLP',
+//     tokenSymbol: 'ATIVO',
 //     icon: '🍣',
 //   },
 //   {
@@ -329,8 +329,8 @@ SLP Address on mainnet for reference
 //       1: '0x8798249c2E607446EfB7Ad49eC89dD1865Ff4272',
 //     },
 //     name: "Chef's Menu",
-//     symbol: 'xSUSHI-ETH SLP',
-//     tokenSymbol: 'xSUSHI',
+//     symbol: 'xATIVO-ETH SLP',
+//     tokenSymbol: 'xATIVO',
 //     icon: '👨🏻‍🍳',
 //   },
 //   {
@@ -456,22 +456,22 @@ SLP Address on mainnet for reference
 
 
 
-// ATIVOSWAP SETTINGS
+// ATIVOSWAP SETTINGS Kovan
 
-export const CHAIN_ID = 97
+export const CHAIN_ID = 42
 
 export const contractAddresses = {
-  sushi: {
-    97: '0x01AcD700604DB812c7c6a6dEdFE832e218899EBd',
+  ativo: {
+    42: '0x9a2A33f52da81a195487D66e3640D1702b7a5491', // Kovan DOne
   },
-  masterChef: {
-    97: '0x6378D8A49FAa7185A6ca2E158B98A6601C8E68a6',
+  ativoFarm: {
+    42: '', // Kovan NOT DONE
   },
   weth: {
-    97: '0xae13d989dac2f0debff460ac112a837c89baa7cd',
+    42: '0xd0a1e359811322d97991e03f863a0c30c2cf029c', // Kovan DOne
   },
-  xSushi: {
-    97: '0x8798249c2e607446efb7ad49ec89dd1865ff4272' // NOTE: Not in use
+  xAtivo: {
+    42: '0x8798249c2e607446efb7ad49ec89dd1865ff4272' // NOTE: Not in use
   }
 }
 
@@ -481,29 +481,28 @@ export const supportedPools = [
   {
     pid: 0,
     lpAddresses: {
-      97: '0x885f8a4e66a7ca6bdb50618123b0949b4826c65d', // LP Token Address
+      42: '0xb10cf58e08b94480fcb81d341a63295ebb2062c2', // LP Token Address - KOVAN DONE
     },
     tokenAddresses: {
-      97: '0xec5dcb5dbf4b114c9d0f65bccab49ec54f6a0867', // Token, i.e. "DAI"
+      42: '0x4f96fe3b7a6cf9725f59d353f723c1bdb64ca6aa', // Token, i.e. "DAI" - KOVAN DONE
     },
-    name: 'Pastel de Dai com Binance coin',
-    symbol: 'DAI-BNB LP',
+    name: 'Uniswap DAI-ETH',
+    symbol: 'DAI-ETH LP',
     tokenSymbol: 'DAI',
     icon: '💡',
   },
   {
     pid: 1,
     lpAddresses: {
-      97: '0xa4367ee24f15ba01516ddc9a37469b9754ed0272', // LP Token Address
+      42: '', // LP Token Address
     },
     tokenAddresses: {
-      97: '0x01acd700604db812c7c6a6dedfe832e218899ebd', // Token, i.e. "PAST"
+      42: '0x9a2A33f52da81a195487D66e3640D1702b7a5491', // Token, i.e. "ATIVO"
     },
     name: 'Pastel de PAST com Binance Coin',
-    symbol: 'PAST-BNB LP',
-    tokenSymbol: 'DAI',
+    symbol: 'ATIVO-ETH LP',
+    tokenSymbol: 'ATIVO',
     icon: '💰',
   },
 ]
-
 

@@ -1,8 +1,8 @@
 import BigNumber from 'bignumber.js/bignumber'
 import ERC20Abi from './abi/erc20.json'
-import MasterChefAbi from './abi/masterchef.json'
-import XSushiAbi from './abi/xsushi.json'
-import SushiAbi from './abi/sushi.json'
+import AtivoFarmAbi from './abi/ativofarm.json'
+import XAtivoAbi from './abi/xativo.json'
+import AtivoAbi from './abi/ativo.json'
 import UNIV2PairAbi from './abi/uni_v2_lp.json'
 import WETHAbi from './abi/weth.json'
 import {
@@ -22,9 +22,9 @@ export class Contracts {
     this.defaultGas = options.defaultGas
     this.defaultGasPrice = options.defaultGasPrice
 
-    this.sushi = new this.web3.eth.Contract(SushiAbi)
-    this.masterChef = new this.web3.eth.Contract(MasterChefAbi)
-    this.xSushiStaking = new this.web3.eth.Contract(XSushiAbi)
+    this.ativo = new this.web3.eth.Contract(AtivoAbi)
+    this.ativoFarm = new this.web3.eth.Contract(AtivoFarmAbi)
+    this.xAtivoStaking = new this.web3.eth.Contract(XAtivoAbi)
     this.weth = new this.web3.eth.Contract(WETHAbi)
 
     this.pools = supportedPools.map((pool) =>
@@ -47,9 +47,9 @@ export class Contracts {
       else console.error('Contract address not found in network', networkId)
     }
 
-    setProvider(this.sushi, contractAddresses.sushi[networkId])
-    setProvider(this.masterChef, contractAddresses.masterChef[networkId])
-    setProvider(this.xSushiStaking, contractAddresses.xSushi[networkId])
+    setProvider(this.ativo, contractAddresses.ativo[networkId])
+    setProvider(this.ativoFarm, contractAddresses.ativoFarm[networkId])
+    setProvider(this.xAtivoStaking, contractAddresses.xAtivo[networkId])
     setProvider(this.weth, contractAddresses.weth[networkId])
 
     this.pools.forEach(
@@ -61,8 +61,8 @@ export class Contracts {
   }
 
   setDefaultAccount(account) {
-    this.sushi.options.from = account
-    this.masterChef.options.from = account
+    this.ativo.options.from = account
+    this.ativoFarm.options.from = account
   }
 
   async callContractFunction(method, options) {

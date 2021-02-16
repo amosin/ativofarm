@@ -18,18 +18,18 @@ interface HarvestProps {
   lpContract: Contract
 }
 
-const UnstakeXSushi: React.FC<HarvestProps> = ({lpContract}) => {
+const UnstakeXAtivo: React.FC<HarvestProps> = ({lpContract}) => {
 
-  const xSushiBalance = useTokenBalance(lpContract.options.address)
+  const xAtivoBalance = useTokenBalance(lpContract.options.address)
   const [pendingTx, setPendingTx] = useState(false)
 
   const {onLeave} = useLeave()
 
-  const tokenName = "xSUSHI"
+  const tokenName = "xATIVO"
 
   const [onPresentLeave] = useModal(
     <WithdrawModal
-      max={xSushiBalance}
+      max={xAtivoBalance}
       onConfirm={onLeave}
       tokenName={tokenName}
     />,
@@ -41,12 +41,12 @@ const UnstakeXSushi: React.FC<HarvestProps> = ({lpContract}) => {
         <StyledCardContentInner>
           <StyledCardHeader>
             <CardIcon>🍣</CardIcon>
-            <Value value={getBalanceNumber(xSushiBalance)}/>
-            <Label text="xSUSHI (SushiBar) Available"/>
+            <Value value={getBalanceNumber(xAtivoBalance)}/>
+            <Label text="xATIVO (AtivoBar) Available"/>
           </StyledCardHeader>
           <StyledCardActions>
             <Button
-              disabled={!xSushiBalance.toNumber() || pendingTx}
+              disabled={!xAtivoBalance.toNumber() || pendingTx}
               text={pendingTx ? 'Converting to ATIVO' : 'Convert to ATIVO'}
               onClick={async () => {
                 setPendingTx(true)
@@ -86,4 +86,4 @@ const StyledCardContentInner = styled.div`
   justify-content: space-between;
 `
 
-export default UnstakeXSushi
+export default UnstakeXAtivo

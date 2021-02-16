@@ -6,11 +6,11 @@ import TopBar from './components/TopBar'
 import FarmsProvider from './contexts/Farms'
 import ModalsProvider from './contexts/Modals'
 import TransactionProvider from './contexts/Transactions'
-import SushiProvider from './contexts/SushiProvider'
+import AtivoProvider from './contexts/AtivoProvider'
 import theme from './theme'
 import Farms from './views/Farms'
 import Home from './views/Home'
-import { CHAIN_ID } from './sushi/lib/constants'
+import { CHAIN_ID } from './ativo/lib/constants'
 import About from './views/about/about';
 import {LanguageContext, initialState } from './contexts/Languages'
 import { LangReducer } from './contexts/Languages';
@@ -52,13 +52,13 @@ const Providers: React.FC = ({ children }) => {
               walletconnect: { rpcUrl: 'https://mainnet.eth.aragon.network/' },
             }}
           >
-            <SushiProvider>
+            <AtivoProvider>
               <TransactionProvider>
                 <FarmsProvider>
                   <ModalsProvider>{children}</ModalsProvider>
                 </FarmsProvider>
               </TransactionProvider>
-            </SushiProvider>
+            </AtivoProvider>
           </UseWalletProvider>
         </I18nProvider>
       </LanguageContext.Provider>

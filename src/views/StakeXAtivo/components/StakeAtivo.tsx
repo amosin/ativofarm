@@ -11,24 +11,24 @@ import useModal from '../../../hooks/useModal'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import {getBalanceNumber} from '../../../utils/formatBalance'
 import DepositModal from './DepositModal'
-import {contractAddresses} from '../../../sushi/lib/constants'
+import {contractAddresses} from '../../../ativo/lib/constants'
 import useEnter from "../../../hooks/useEnter";
 import useLeave from "../../../hooks/useLeave";
 import useAllowanceStaking from "../../../hooks/useAllowanceStaking";
 import useApproveStaking from "../../../hooks/useApproveStaking";
-import { CHAIN_ID } from '../../../sushi/lib/constants'
+import { CHAIN_ID } from '../../../ativo/lib/constants'
 
 interface StakeProps {
 }
 
-const StakeSushi: React.FC<StakeProps> = ({}) => {
-  const tokenName = "SUSHI"
+const StakeAtivo: React.FC<StakeProps> = ({}) => {
+  const tokenName = "ATIVO"
   const [requestedApproval, setRequestedApproval] = useState(false)
 
   const allowance = useAllowanceStaking()
   const {onApprove} = useApproveStaking()
 
-  const tokenBalance = useTokenBalance(contractAddresses.sushi[CHAIN_ID])
+  const tokenBalance = useTokenBalance(contractAddresses.ativo[CHAIN_ID])
 
   const {onEnter} = useEnter()
   const {onLeave} = useLeave()
@@ -61,20 +61,20 @@ const StakeSushi: React.FC<StakeProps> = ({}) => {
           <StyledCardHeader>
             <CardIcon>👨🏻‍🍳</CardIcon>
             <Value value={getBalanceNumber(tokenBalance)}/>
-            <Label text={`SUSHI Tokens Available`}/>
+            <Label text={`ATIVO Tokens Available`}/>
           </StyledCardHeader>
           <StyledCardActions>
             {!allowance.toNumber() ? (
               <Button
                 disabled={requestedApproval}
                 onClick={handleApprove}
-                text={`Approve SUSHI`}
+                text={`Approve ATIVO`}
               />
             ) : (
               <>
                 <Button
                   disabled={tokenBalance.eq(new BigNumber(0))}
-                  text="Convert to xSUSHI"
+                  text="Convert to xATIVO"
                   onClick={onPresentDeposit}
                 />
                 <StyledActionSpacer/>
@@ -112,4 +112,4 @@ const StyledCardContentInner = styled.div`
   justify-content: space-between;
 `
 
-export default StakeSushi
+export default StakeAtivo

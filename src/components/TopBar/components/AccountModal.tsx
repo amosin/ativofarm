@@ -2,8 +2,8 @@ import React, { useCallback } from 'react'
 import styled from 'styled-components'
 import { useWallet } from 'use-wallet'
 import useTokenBalance from '../../../hooks/useTokenBalance'
-import useSushi from '../../../hooks/useSushi'
-import { getSushiAddress } from '../../../sushi/utils'
+import useAtivo from '../../../hooks/useAtivo'
+import { getAtivoAddress } from '../../../ativo/utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 import Button from '../../Button'
 import CardIcon from '../../CardIcon'
@@ -26,8 +26,8 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
     reset()
   }, [onDismiss, reset])
 
-  const sushi = useSushi()
-  const sushiBalance = useTokenBalance(getSushiAddress(sushi))
+  const ativo = useAtivo()
+  const ativoBalance = useTokenBalance(getAtivoAddress(ativo))
   const intl = useIntl();
   return (
     <Modal>
@@ -41,7 +41,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
                 <img src={AtivoCoinLogo} height="100"/>
             </CardIcon>
             <StyledBalance>
-              <Value value={getBalanceNumber(sushiBalance)} />
+              <Value value={getBalanceNumber(ativoBalance)} />
               <Label text={intl.formatMessage({ id: KEYS.ATIVO_BALANCE })} />
             </StyledBalance>
           </StyledBalanceWrapper>

@@ -12,8 +12,8 @@ import useAllEarnings from '../../../hooks/useAllEarnings'
 import useAllStakedValue from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
 import useTokenBalance from '../../../hooks/useTokenBalance'
-import useSushi from '../../../hooks/useSushi'
-import { getSushiAddress, getSushiSupply } from '../../../sushi/utils'
+import useAtivo from '../../../hooks/useAtivo'
+import { getAtivoAddress, getAtivoSupply } from '../../../ativo/utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 import AtivoCoinLogo from '../../../assets/img/ativoCoinSmaller.png'
 import { useIntl } from 'react-intl'
@@ -74,21 +74,21 @@ const PendingRewards: React.FC = () => {
 
 const Balances: React.FC = () => {
   const [totalSupply, setTotalSupply] = useState<BigNumber>()
-  const sushi = useSushi()
-  const sushiBalance = useTokenBalance(getSushiAddress(sushi))
+  const ativo = useAtivo()
+  const ativoBalance = useTokenBalance(getAtivoAddress(ativo))
   const { account, ethereum }: { account: any; ethereum: any } = useWallet()
 
   const intl = useIntl();
 
   useEffect(() => {
     async function fetchTotalSupply() {
-      const supply = await getSushiSupply(sushi)
+      const supply = await getAtivoSupply(ativo)
       setTotalSupply(supply)
     }
-    if (sushi) {
+    if (ativo) {
       fetchTotalSupply()
     }
-  }, [sushi, setTotalSupply])
+  }, [ativo, setTotalSupply])
 
   return (
     <StyledWrapper>
@@ -103,7 +103,7 @@ const Balances: React.FC = () => {
               <div style={{ flex: 1 }}>
                 <Label text={intl.formatMessage({ id: KEYS.BALANCE_TITLE })} />
                 <Value
-                  value={!!account ? getBalanceNumber(sushiBalance) : intl.formatMessage({ id: KEYS.BALANCE_STATUS })}
+                  value={!!account ? getBalanceNumber(ativoBalance) : intl.formatMessage({ id: KEYS.BALANCE_STATUS })}
                 />
               </div>
             </StyledBalance>
